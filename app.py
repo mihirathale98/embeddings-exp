@@ -29,7 +29,7 @@ doc_data = json.load(open("harry_docs.json"))
 embedding_model = OpenAIEmbeddings(model="text-embedding-3-large")
 
 st.title("Document Embeddings Visualization")
-st.write("Compare document embeddings before and after element-wise multiplication with the query")
+st.write("Compare base to conditional embeddings")
 
 question_text = st.text_input("Enter a question:")
 
@@ -322,7 +322,7 @@ if st.button("Visualize"):
             st.plotly_chart(original_pca)
             
         with col2:
-            st.write("After Query Multiplication")
+            st.write("Conditional Embeddings")
             multiplied_pca = create_pca_visualization(
                 element_wise_mul, 
                 doc_data, 
@@ -352,7 +352,7 @@ if st.button("Visualize"):
             st.plotly_chart(original_tsne)
             
         with col4:
-            st.write("After Query Multiplication")
+            st.write("Conditional Embeddings")
             multiplied_tsne = create_tsne_visualization(
                 element_wise_mul, 
                 doc_data, 
